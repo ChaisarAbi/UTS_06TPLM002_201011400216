@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -30,21 +31,18 @@ class Product {
 }
 
 final List<Product> products = [
-  Product(
-      'Nike Bomba 1',
-      'assets/images/sepatu2.png',
-      'Explode your Style like a BOMB!',
-      100.0),
-  Product(
-      'Nike Speeds',
-      'assets/images/sepatu1.png',
-      'Fast, Nimble, Become the Wind!',
-      80.0),
-  Product(
-      'Nike Sports VXI',
-      'assets/images/sepatu2.png',
-      'Agility Is my Middle Name!',
-      120.0),
+  Product('Nike Bomba 1', 'assets/images/sepatu2.png',
+      'Explode your Style like a BOMB!', 100.0),
+  Product('Nike Speeds', 'assets/images/sepatu1.png',
+      'Fast, Nimble, Become the Wind!', 80.0),
+  Product('Nike Sports VXI', 'assets/images/sepatu2.png',
+      'Agility Is my Middle Name!', 120.0),
+  Product('Nike Sports VXII', 'assets/images/sepatu1.png',
+      'Agility Is my First Name!', 120.0),
+  Product('Nike Sports VXIII', 'assets/images/sepatu1.png',
+      'Agility Is my Last Name!', 120.0),
+  Product('Nike Sports VXIIII', 'assets/images/sepatu2.png',
+      'Agility Is my Full Name!', 120.0),
 ];
 
 class ProductListScreen extends StatelessWidget {
@@ -54,6 +52,9 @@ class ProductListScreen extends StatelessWidget {
     Colors.amber[100]!,
     Colors.grey[100]!,
     Colors.blue[100]!,
+    Colors.lime[100]!,
+    Colors.red[100]!,
+    Colors.yellow[100]!
   ];
 
   @override
@@ -63,13 +64,14 @@ class ProductListScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.only(left: 30),
             child: Row(
               children: const [
-                Text('Shoes',
-                    style:
-                        TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold)),
-                SizedBox(width: 16.0),
+                Text(
+                  'Shoes',
+                  style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+                ),
+                Spacer(),
                 CircleAvatar(
                   backgroundImage: AssetImage('assets/images/crown-10716.png'),
                   radius: 24.0,
@@ -87,9 +89,7 @@ class ProductListScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(16.0),
                   decoration: BoxDecoration(
                     color: colors[index % colors.length],
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(16)
-                    ),
+                    borderRadius: BorderRadius.all(Radius.circular(16)),
                   ),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -102,7 +102,7 @@ class ProductListScreen extends StatelessWidget {
                                 style: const TextStyle(fontSize: 20.0)),
                             const SizedBox(height: 8.0),
                             Text(product.desc),
-                            const SizedBox(height: 8.0),
+                            const SizedBox(height: 20),
                             Text('${product.harga}',
                                 style: const TextStyle(
                                     fontSize: 16.0,
