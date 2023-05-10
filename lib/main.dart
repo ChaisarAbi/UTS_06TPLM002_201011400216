@@ -50,7 +50,7 @@ class ProductListScreen extends StatelessWidget {
 
   final List<Color> colors = [
     Colors.amber[100]!,
-    Colors.grey[100]!,
+    Colors.grey[300]!,
     Colors.blue[100]!,
     Colors.lime[100]!,
     Colors.red[100]!,
@@ -64,12 +64,12 @@ class ProductListScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            padding: const EdgeInsets.only(left: 30),
+            padding: const EdgeInsets.all(16),
             child: Row(
               children: const [
                 Text(
                   'Shoes',
-                  style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 32.0, fontWeight: FontWeight.bold),
                 ),
                 Spacer(),
                 CircleAvatar(
@@ -85,11 +85,11 @@ class ProductListScreen extends StatelessWidget {
               itemBuilder: (BuildContext context, int index) {
                 final product = products[index];
                 return Container(
-                  margin: EdgeInsets.all(10),
+                  margin: const EdgeInsets.all(10),
                   padding: const EdgeInsets.all(16.0),
                   decoration: BoxDecoration(
                     color: colors[index % colors.length],
-                    borderRadius: BorderRadius.all(Radius.circular(16)),
+                    borderRadius: const BorderRadius.all(Radius.circular(16)),
                   ),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -99,11 +99,11 @@ class ProductListScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(product.nama,
-                                style: const TextStyle(fontSize: 20.0)),
-                            const SizedBox(height: 8.0),
+                                style: const TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold )),
+                            const SizedBox(height: 20.0),
                             Text(product.desc),
-                            const SizedBox(height: 20),
-                            Text('${product.harga}',
+                            const SizedBox(height: 60.0),
+                            Text('\$${product.harga}',
                                 style: const TextStyle(
                                     fontSize: 16.0,
                                     fontWeight: FontWeight.bold)),
@@ -112,7 +112,7 @@ class ProductListScreen extends StatelessWidget {
                       ),
                       const SizedBox(width: 16.0),
                       Image.network(product.imageUrl,
-                          width: 80.0, height: 80.0),
+                          width: 150.0, height: 150.0),
                     ],
                   ),
                 );
